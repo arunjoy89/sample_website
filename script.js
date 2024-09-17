@@ -12,3 +12,11 @@ function startAnimation() {
 function stopAnimation() {
     floatingText.style.animation = 'none';
 }
+
+// Example: Start animation when the page loads
+window.onload = startAnimation;
+
+// Optional: Add event listeners to control the animation
+// For example, stop animation on hover
+floatingText.addEventListener('mouseenter', stopAnimation);
+floatingText.addEventListener('mouseleave', startAnimation);
