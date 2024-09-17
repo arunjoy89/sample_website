@@ -25,11 +25,7 @@ body {
 }
 
 .top-bar-left {
-    float: left;
-}
-
-.top-bar-right {
-    float: right;
+    /* No float needed as flexbox handles alignment */
 }
 
 .top-bar-right a {
@@ -109,7 +105,7 @@ body {
 
 /* Hero Section */
 .hero-banner {
-    background: url('hero-banner.jpg') no-repeat center center/cover;
+    background: url('images/hero-banner.jpg') no-repeat center center/cover;
     height: 400px;
     display: flex;
     justify-content: center;
@@ -192,16 +188,16 @@ body {
 .services h2 {
     text-align: center;
     margin-bottom: 40px;
-    color: #fff;
     background-color: #00274d;
+    color: white;
     padding: 20px;
     border-radius: 5px;
 }
 
 .services-grid {
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Center items */
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 }
 
 .service-item {
@@ -209,8 +205,8 @@ body {
     padding: 20px;
     border-radius: 5px;
     text-align: center;
-    margin-bottom: 20px;
-    max-width: 600px; /* Adjust width as needed */
+    flex: 1 1 45%; /* Makes items take up half the container on medium screens */
+    margin: 10px;
 }
 
 .service-item h3 {
@@ -248,7 +244,99 @@ footer {
 }
 
 .footer-text {
-    margin: -100;
-    margin-right: -100px;
+    margin: 0;
+    text-align: right;
     width: 100%;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    /* Tablet and smaller screens */
+
+    .top-bar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .cta-btn {
+        padding: 8px 16px;
+    }
+
+    .services-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-item {
+        flex: 1 1 100%;
+        max-width: 600px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        margin-bottom: 10px;
+    }
+
+    .footer-text {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Mobile phones */
+
+    .hero-banner {
+        height: 300px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .floating-text {
+        font-size: 2rem;
+    }
+
+    .services h2 {
+        font-size: 1.5rem;
+        padding: 15px;
+    }
+
+    .service-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .footer-links a {
+        margin-right: 10px;
+    }
+
+    .nav-links ul li a {
+        padding: 8px 12px;
+    }
 }
